@@ -134,10 +134,23 @@ $ git status
 					</code></pre>
 				</section>
 				<section>
+					<h2> Ignoring files</h2>
+					<p> Often there are files we don't want to track. Specify those patterns in  a .gitignore
+					<pre> <code class="bash">
+# a comment  this is ignored
+*.a       # no .a files
+!lib.a    # but do track lib.a, even though you’re ignoring .a files above
+/TODO     # only ignore the root TODO file, not subdir/TODO
+build/    # ignore all files in the build/ directory
+doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
+					</code> </pre>
+				</section>
+				<section>
 					<h2> Committing </h2>
 					<pre> <code class="bash">
-
+$ git commit -m "My very first git commit"
 					</code> </pre>
+					<p> Each commit is given a SHA checksum. Remember a commit persists whatever was in your staging area</p>
 				</section>
 			</div>
 
