@@ -149,8 +149,49 @@ doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
 					<h2> Committing </h2>
 					<pre> <code class="bash">
 $ git commit -m "My very first git commit"
+# to check your commits
+$ git log
+
+# Open up README again and add some text
+$ git commit -am "I skipped the staging area"
 					</code> </pre>
 					<p> Each commit is given a SHA checksum. Remember a commit persists whatever was in your staging area</p>
+				</section>
+				<section>
+					<h2> Removing files </h2>
+					<pre> <code class="bash">
+# make a file called remove.txt
+# add it to the staging area
+$ git add remove.txt
+
+# commit
+$ git commit -m "added remove.txt"
+$ git status
+
+# Now say I change my mind, and want to remove it
+$ git rm remove.txt
+$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	deleted:    remove.txt
+
+					</code></pre>
+				</section>
+				<section>
+					<h2> Moving Files </h2>
+					<pre> <code>
+$ git mv README README.md
+$ git status
+# On branch master
+# Changes to be committed:
+# 	(use "git reset HEAD <file>..." to unstage)
+#    renamed:    README -> README.md
+
+$ git commit -am "renamed README"
+
+					</code> </pre>
 				</section>
 			</div>
 
