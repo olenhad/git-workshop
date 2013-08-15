@@ -181,7 +181,7 @@ $ git status
 				</section>
 				<section>
 					<h2> Moving Files </h2>
-					<pre> <code>
+					<pre> <code class="bash">
 $ git mv README README.md
 $ git status
 # On branch master
@@ -190,6 +190,19 @@ $ git status
 #    renamed:    README -> README.md
 
 $ git commit -am "renamed README"
+
+					</code> </pre>
+				</section>
+				<section>
+					<h2> Amending Commits</h2>
+					<p> assume you screwed up a commit message, or forgot to add a file</p>
+					<pre> <code class="bash">
+$ git commit -m "pre-amend commit"
+
+# create a file
+$ touch test-amend.txt
+$ git add test-amend.txt
+$ git commit --amend
 
 					</code> </pre>
 				</section>
