@@ -107,7 +107,7 @@ $ git status
 				</section>
 				<section>
 					<h2> States in Git</h2>
-					<img src="/img/git-states.png">
+					<img src="img/git-states.png">
 				</section>
 				<section>
 					<h2> Workflow </h2> 
@@ -265,14 +265,96 @@ $ git pull origin master
 					</code> </pre>
 				</section>
 				<section>
-					<h2> Branches</h2>
-					<p> Git is a <em> distributed </em> version control system</p>
-					<pre> <code>
+					<section>
+						<h2> Branches</h2>
+						<p> Git is a <em> distributed </em> version control system</p>
+						<pre> <code>
 $ git branch
 # lists all branches
+
 $ git branch testing
-					</code> </pre>
+# creates a new branch called testing.
+# git uses a pointer called HEAD to track current branch
+						</code> </pre>
+						<img src="img/branch1.png">
+						</section>
+					<section>
+						<h3> Check that out!</h3>
+						<pre> <code class="bash">
+$ git checkout testing
+						</code> </pre>
+						<img src="img/branch2.png">
+					</section>
+					<section>
+						<p> Lets add a commit</p>
+						<pre> <code class="bash">
+$ git commit -am "change to test testing"
+						</code> </pre>
+						<img src="img/branch3.png">
+					</section>
+					<section>
+						<h3> Diverging Histories </h3>
+						<pre> <code class="bash">
+$ git checkout master
+# .. perform some edits
+$ git commit -am "changed stuff in master"
+						</code> </pre>
+						<img src="img/branch4.png">
+					</section>
+					<section>
+						<h3> Merging time </h3>
+						<pre> <code class="bash">
+$ git merge testing
+
+# git finds the best common ancestor
+
+# performs a three way merge between common ancestor, 
+# the snapshot to be merged, and the snapshot merging into.
+						</code> </pre>
+						<img src="img/branch5.png">
+					</section>
+					<section>
+						<h3> Merge Conflicts</h3>
+						<p> Sometimes a merge would fail</p>
+						<p> especially when same file edited in both snapshots</p>
+						<pre> <code class="xml">
+<<<<<<< HEAD:index.html
+&ltdiv id="footer"&gt
+	contact : email.support@github.com&lt/div&gt
+=======
+&ltdiv id="footer"&gt
+  please contact us at support@github.com
+ >>>>>>> testing:index.html
+						</code> </pre>
+					</section>
+					<section>
+						<h3> More on branches</h3>
+						<pre> <code class="bash">
+$ git branch -d testing
+# to delete branches
+
+$ git branch --merged
+# check which branches are already merged
+
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Workflow</h3>
+						<img src="img/branch6.png">
+					</section>
 				</section>
+				<section>
+					<section>
+						<h2> Git for deployment</h2>
+					</section>
+					<section>
+						<h3> Setting up</h3>
+						<pre> <code class="bash">
+
+						</code> </pre>
+					</section>
+				</section>
+
 			</div>
 
 		</div>
