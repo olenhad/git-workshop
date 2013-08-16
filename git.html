@@ -44,14 +44,10 @@
 				</section>
 
 				<section>
-					<h2>Intro</h2>
+					<h2> Why? </h2>
 					<p>
 						Code is hard to keep track of.
 					</p>	
-					<p> 
-						git is a distributed version control system.
-
-					</p>
 
 					<aside class="notes">
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
@@ -91,8 +87,9 @@ $ git help $Whatever
 					</pre></code>
 				</section>
 				<section>
-					<h2> Git Basics </h2>
-					<pre> <code class="bash">
+					<section>
+						<h2> Git Basics </h2>
+						<pre> <code class="bash">
 $ mkdir git-tutorial
 $ cd git-tutorial 
 $ git init
@@ -103,23 +100,23 @@ $ vim README
 $ git status
 # You should see README in untracked files 
 
-					</code> </pre> 
-				</section>
-				<section>
-					<h2> States in Git</h2>
-					<img src="img/git-states.png">
-				</section>
-				<section>
-					<h2> Workflow </h2> 
-					<ul>
-						<li> You modify files in your working directory. </li>
-						<li> You stage the files, adding snapshots of them to your staging area.</li>
-						<li> You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.</li>
-					</ul>
-				</section>
-				<section>
-					<h2> Staging </h2>
-					<pre> <code class="bash">
+						</code> </pre> 
+					</section>
+					<section>
+						<h3> States in Git</h3>
+						<img src="img/git-states.png">
+					</section>
+					<section>
+						<h3> Workflow </h3> 
+						<ul>
+							<li> You modify files in your working directory. </li>
+							<li> You stage the files, adding snapshots of them to your staging area.</li>
+							<li> You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.</li>
+						</ul>
+					</section>
+					<section>
+						<h3> Staging </h3>
+						<pre> <code class="bash">
 $ git add README
 # adds README to staging
 
@@ -131,35 +128,35 @@ $ git add *.js
 $ git status
 # You'll see README in changes to be committed
 
-					</code></pre>
-				</section>
-				<section>
-					<h2> Ignoring files</h2>
-					<p> Often there are files we don't want to track. Specify those patterns in  a .gitignore
-					<pre> <code class="bash">
+						</code></pre>
+					</section>
+					<section>
+						<h3> Ignoring files</h3>
+						<p> Often there are files we don't want to track. Specify those patterns in  a .gitignore
+						<pre> <code class="bash">
 # a comment  this is ignored
 *.a       # no .a files
 !lib.a    # but do track lib.a, even though you’re ignoring .a files above
 /TODO     # only ignore the root TODO file, not subdir/TODO
 build/    # ignore all files in the build/ directory
 doc/*.txt # ignore doc/notes.txt, but not doc/server/arch.txt
-					</code> </pre>
-				</section>
-				<section>
-					<h2> Committing </h2>
-					<pre> <code class="bash">
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Committing </h3>
+						<pre> <code class="bash">
 $ git commit -m "My very first git commit"
 # to check your commits
 $ git log
 
 # Open up README again and add some text
 $ git commit -am "I skipped the staging area"
-					</code> </pre>
-					<p> Each commit is given a SHA checksum. Remember a commit persists whatever was in your staging area</p>
-				</section>
-				<section>
-					<h2> Removing files </h2>
-					<pre> <code class="bash">
+						</code> </pre>
+						<p> Each commit is given a SHA checksum. Remember a commit persists whatever was in your staging area</p>
+					</section>
+					<section>
+						<h3> Removing files </h3>
+						<pre> <code class="bash">
 # make a file called remove.txt
 # add it to the staging area
 $ git add remove.txt
@@ -173,30 +170,30 @@ $ git rm remove.txt
 $ git status
 # On branch master
 # Changes to be committed:
-#   (use "git reset HEAD <file>..." to unstage)
+#   (use "git reset HEAD &ltfile&gt..." to unstage)
 #
 #	deleted:    remove.txt
 
-					</code></pre>
-				</section>
-				<section>
-					<h2> Moving Files </h2>
-					<pre> <code class="bash">
+						</code></pre>
+					</section>
+					<section>
+						<h3> Moving Files </h3>
+						<pre> <code class="bash">
 $ git mv README README.md
 $ git status
 # On branch master
 # Changes to be committed:
-# 	(use "git reset HEAD <file>..." to unstage)
+# 	(use "git reset HEAD &ltfile&gt..." to unstage)
 #    renamed:    README -> README.md
 
 $ git commit -am "renamed README"
 
-					</code> </pre>
-				</section>
-				<section>
-					<h2> Amending Commits</h2>
-					<p> assume you screwed up a commit message, or forgot to add a file</p>
-					<pre> <code class="bash">
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Amending Commits</h3>
+						<p> assume you screwed up a commit message, or forgot to add a file</p>
+						<pre> <code class="bash">
 $ git commit -m "pre-amend commit"
 
 # create a file
@@ -204,11 +201,11 @@ $ touch test-amend.txt
 $ git add test-amend.txt
 $ git commit --amend
 
-					</code> </pre>
-				</section>
-				<section>
-					<h2> Unstaging </h2>
-					<pre> <code class="bash"> 
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Unstaging </h3>
+						<pre> <code class="bash"> 
 # say I added some stuff I'm not supposed to README.
 $ git add .
 # oops.
@@ -216,40 +213,41 @@ $ git reset HEAD README
 # et voila.
 # Will explain what HEAD means later
 					</code> </pre>
+					</section>
 				</section>
 				<section>
-					<h2> Cloning </h2>
-					<pre> <code class="bash">
+					<section>
+						<h2> Collaborating </h2>
+						<pre> <code class="bash">
 # to clone a repo from a ssh/https url
 $ git clone git@github.com:olenhad/git-workshop.git
 # or if you prefer
 $ git clone https://github.com/olenhad/git-workshop.git
-					</code> </pre>
-				</section>
-				<section>
-					<h2> Remotes </h2>
-					<p> collab ftw! </p>
-					<pre> <code class="bash">
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Remotes </h3>
+						<pre> <code class="bash">
 $ git remote -v
 # lists all remotes with urls
 $ git remote add mySexyRemoteName git://mysexyrepourl
 
-					</code> </pre>
-				</section>
-				<section>
-					<h2> Github </h2>
-					<p> everyone should have a github account by now</p>
-					<p> Just create a repo called git-tutorial (or whatever you want really). </p>
-					<pre> <code class="bash">
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Github </h3>
+						<p> everyone should have a github account by now</p>
+						<p> Just create a repo called git-tutorial (or whatever you want really). </p>
+						<pre> <code class="bash">
 $ git remote add origin https://github.com/arandomusername/git-tutorial.git
 # or if you prefer ssh (I do!)
 $ git remote add origin git@github.com:arandomuusername/git-tutorial.git
-					</code> </pre>
-					<p> to set up ssh keys check <a href="https://help.github.com/articles/generating-ssh-keys"> this</a> guide</p>
-				</section>
-				<section>
-					<h2> Pushing, fetching, pulling </h2>
-					<pre> <code class="bash">
+						</code> </pre>
+						<p> to set up ssh keys check <a href="https://help.github.com/articles/generating-ssh-keys"> this</a> guide</p>
+					</section>
+					<section>
+						<h3> Pushing, fetching, pulling </h3>
+						<pre> <code class="bash">
 $ git push origin master
 # Will obviously push our latest changes to remote named
 # "origin" in branch "master"
@@ -262,7 +260,8 @@ $ git merge origin/master
 
 # faster method
 $ git pull origin master
-					</code> </pre>
+						</code> </pre>
+					</section>
 				</section>
 				<section>
 					<section>
