@@ -206,6 +206,73 @@ $ git commit --amend
 
 					</code> </pre>
 				</section>
+				<section>
+					<h2> Unstaging </h2>
+					<pre> <code class="bash"> 
+# say I added some stuff I'm not supposed to README.
+$ git add .
+# oops.
+$ git reset HEAD README
+# et voila.
+# Will explain what HEAD means later
+					</code> </pre>
+				</section>
+				<section>
+					<h2> Cloning </h2>
+					<pre> <code class="bash">
+# to clone a repo from a ssh/https url
+$ git clone git@github.com:olenhad/git-workshop.git
+# or if you prefer
+$ git clone https://github.com/olenhad/git-workshop.git
+					</code> </pre>
+				</section>
+				<section>
+					<h2> Remotes </h2>
+					<p> collab ftw! </p>
+					<pre> <code class="bash">
+$ git remote -v
+# lists all remotes with urls
+$ git remote add mySexyRemoteName git://mysexyrepourl
+
+					</code> </pre>
+				</section>
+				<section>
+					<h2> Github </h2>
+					<p> everyone should have a github account by now</p>
+					<p> Just create a repo called git-tutorial (or whatever you want really). </p>
+					<pre> <code class="bash">
+$ git remote add origin https://github.com/arandomusername/git-tutorial.git
+# or if you prefer ssh (I do!)
+$ git remote add origin git@github.com:arandomuusername/git-tutorial.git
+					</code> </pre>
+					<p> to set up ssh keys check <a href="https://help.github.com/articles/generating-ssh-keys"> this</a> guide</p>
+				</section>
+				<section>
+					<h2> Pushing, fetching, pulling </h2>
+					<pre> <code class="bash">
+$ git push origin master
+# Will obviously push our latest changes to remote named
+# "origin" in branch "master"
+# Lets assume someone else pushed some changes.
+$ git fetch origin
+# fetch pulls the latest data from the repo.
+# fetch doesn't update your code. It just updates the repo.
+$ git merge origin/master
+# to merge your master branch with the remote's branch
+
+# faster method
+$ git pull origin master
+					</code> </pre>
+				</section>
+				<section>
+					<h2> Branches</h2>
+					<p> Git is a <em> distributed </em> version control system</p>
+					<pre> <code>
+$ git branch
+# lists all branches
+$ git branch testing
+					</code> </pre>
+				</section>
 			</div>
 
 		</div>
