@@ -349,8 +349,67 @@ $ git branch --merged
 					</section>
 					<section>
 						<h3> Setting up</h3>
+						<p> Pop up an ec2</p>
 						<pre> <code class="bash">
+# on your vm
+$ git clone --bare https://github.com/olenhad2/git-tutorial.git
+# bare repositories just contain git data
 
+$ cd git-tutorial.git/hooks
+$ vim post-receive
+
+echo "hello from server"
+
+$ chmod +x post-receive
+
+
+						</code> </pre>
+					</section>
+					<section>
+						<p> Give your vm a static ip</p>
+						<p> add that to your ssh config</p>
+						<pre> <code class="bash">
+$ vim ~/.ssh/config
+
+Host git-test
+	HostName 46.137.253.77
+	User ubuntu
+
+$ git remote add ec2 git-test:/home/ubuntu/git-tutorial.git
+$ git push ec2 master
+...
+# remote: hello from server
+
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Pimp up the hook</h3>
+						<pre> <code class="bash">
+#on your server
+$ sudo apt-get install apache2
+
+# add ubuntu to www-data group. give the group permissions over /var/www
+$ sudo adduser ubuntu www-data
+$ sudo chown -R www-data:www-data /var/www
+$ sudo chmod -R g+rw /var/www
+
+$ vim ~/git-tutorial.git/hooks/post-receive
+
+echo "hello from server"
+export GIT_WORK_TREE=/var/www/
+git checkout -f
+sudo /etc/init.d/apache2 restart
+
+						</code> </pre>
+					</section>
+					<section>
+						<h3> Et Voila</h3>
+						<pre> <code class="bash">
+#on your machine
+$ vim index.html
+$ git push ec2 master
+
+# Go to your IP and enjoy 
 						</code> </pre>
 					</section>
 				</section>
